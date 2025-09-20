@@ -155,10 +155,8 @@ L.pop(2) # Shrinking: delete an item in the middle
 Gli indici delle liste devono essere compresi tra 0 e `len(list)-1`.
 
 #### Nesting
-One nice feature of Python’s core data types is that they support arbitrary nesting—we
-can nest them in any combination, and as deeply as we like (for example, we can have
-a list that contains a dictionary, which contains another list, and so on). One immediate
-application of this feature is to represent matrixes:
+I `Python’s core data types` supportano la concatenazione arbitraria (per esempio, è possibile avere una lista che contiene dizionari, che contiene un'altra lista e così via). Un'applicazione immediata è quella delle matrici:
+
 ```python
 >>> M = [[1, 2, 3], # A 3 × 3 matrix, as nested lists
 [4, 5, 6], # Code can span lines if bracketed

@@ -8,6 +8,24 @@ print(S)
 
 print(n)
 
+
 M = [[1, 2, 3], # A 3 × 3 matrix, as nested lists
 [4, 5, 6], # Code can span lines if bracketed
 [7, 8, 9]]
+
+print(M)
+
+s_col = [0 for i in range(len(M))]
+
+for row in M:
+    for i in range(len(row)):
+        s_col[i] += row[i]
+
+print(s_col)
+
+D = {'a': 1, 'b': 2, 'c': 3}
+
+ksd = [key for key in D]
+
+T = (1,3,4)
+

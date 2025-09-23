@@ -19,18 +19,18 @@ implemented in C for speed.
 
 ### Python’s Core Data Types
 
-| object type                  | esempio                                                                      |
-|------------------------------|------------------------------------------------------------------------------|
-| Numbers                      | 1234, 3.1415, 3+4j, Decimal, Fraction                                        |
-| Strings                      | 'spam', "guido's", b'a\x01c'                                                 |
-| Lists                        | [1, [2, 'three'], 4]                                                         |
-| Dictionaries                 | {'food': 'spam', 'taste': 'yum'}                                             |
-| Tuples                       | (1, 'spam', 4, 'U')                                                          |
-| Files                        | myfile = open('eggs', 'r')                                                   |
-| Sets                         | set('abc'), {'a', 'b', 'c'}                                                  |
-| Other core types             | Booleans, types, None                                                        |
-| Program unit types           | [Functions](#4-functions) , [modules](#modules), [classes](#classes-and-oop) |
-| Implementation-related types | Compiled code, stack tracebacks (Part IV, Part VII)                          |
+| object type                  | esempio                                                                     |
+|------------------------------|-----------------------------------------------------------------------------|
+| Numbers                      | 1234, 3.1415, 3+4j, Decimal, Fraction                                       |
+| Strings                      | 'spam', "guido's", b'a\x01c'                                                |
+| Lists                        | [1, [2, 'three'], 4]                                                        |
+| Dictionaries                 | {'food': 'spam', 'taste': 'yum'}                                            |
+| Tuples                       | (1, 'spam', 4, 'U')                                                         |
+| Files                        | myfile = open('eggs', 'r')                                                  |
+| Sets                         | set('abc'), {'a', 'b', 'c'}                                                 |
+| Other core types             | Booleans, types, None                                                       |
+| Program unit types           | [Functions](#4-function) , [modules](#modules), [classes](#classes-and-oop) |
+| Implementation-related types | Compiled code, stack tracebacks (Part IV, Part VII)                         |
 
 As we’ll see in later, program units such as functions, modules, and
 classes are objects in Python too—they are created with statements and expressions

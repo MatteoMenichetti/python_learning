@@ -29,3 +29,10 @@ ksd = [key for key in D]
 
 T = (1,3,4)
 
+f = open('README.MD', 'r')
+
+lines = [line.strip() for line in f]
+
+lines_map = list(map(str.strip, open('README.MD').readlines()))
+
+f.close()

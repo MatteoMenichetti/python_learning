@@ -1,5 +1,3 @@
-from lib2to3.btm_utils import rec_test
-
 # Appunti Python
 
 ## Interprete
@@ -13,14 +11,6 @@ La `PVM` è il componente che realmente esegue gli script ed è l'ultimo step de
 
 ## 2. Python Objects Type
 
-Un programma python è composto come segue:
-1. Programs are composed of modules.
-2. Modules contain statements.
-3. Statements contain expressions.
-4. Expressions create and process objects.
-
-`objects` sono intese `data structures`.
-
 ### Why use built-in type?
 In python i più utili `objects type` sono intriseche al linguaggio, cosiché non sia necessario implementarle. Inoltre
 - **Built-in objects are components of extensions.** For more complex tasks, you may need to provide your own objects using Python classes or C language interfaces. Objects implemented manually are often built on top of built-in types such as lists and dictionaries. For instance, a stack data structure may be implemented as a class that manages or customizes a built-in list.
@@ -29,18 +19,18 @@ implemented in C for speed.
 
 ### Python’s Core Data Types
 
-| object type                  | esempio                                                                    |
-|------------------------------|----------------------------------------------------------------------------|
-| Numbers                      | 1234, 3.1415, 3+4j, Decimal, Fraction                                      |
-| Strings                      | 'spam', "guido's", b'a\x01c'                                               |
-| Lists                        | [1, [2, 'three'], 4]                                                       |
-| Dictionaries                 | {'food': 'spam', 'taste': 'yum'}                                           |
-| Tuples                       | (1, 'spam', 4, 'U')                                                        |
-| Files                        | myfile = open('eggs', 'r')                                                 |
-| Sets                         | set('abc'), {'a', 'b', 'c'}                                                |
-| Other core types             | Booleans, types, None                                                      |
-| Program unit types           | [Functions](#functions) , [modules](#modules), [classes](#classes-and-oop) |
-| Implementation-related types |  Compiled code, stack tracebacks (Part IV, Part VII)                       |
+| object type                  | esempio                                                                      |
+|------------------------------|------------------------------------------------------------------------------|
+| Numbers                      | 1234, 3.1415, 3+4j, Decimal, Fraction                                        |
+| Strings                      | 'spam', "guido's", b'a\x01c'                                                 |
+| Lists                        | [1, [2, 'three'], 4]                                                         |
+| Dictionaries                 | {'food': 'spam', 'taste': 'yum'}                                             |
+| Tuples                       | (1, 'spam', 4, 'U')                                                          |
+| Files                        | myfile = open('eggs', 'r')                                                   |
+| Sets                         | set('abc'), {'a', 'b', 'c'}                                                  |
+| Other core types             | Booleans, types, None                                                        |
+| Program unit types           | [Functions](#4-functions) , [modules](#modules), [classes](#classes-and-oop) |
+| Implementation-related types | Compiled code, stack tracebacks (Part IV, Part VII)                          |
 
 As we’ll see in later, program units such as functions, modules, and
 classes are objects in Python too—they are created with statements and expressions
@@ -213,7 +203,7 @@ doubles
  Le `list comprehensions` sono una feature opzionale, ma spesso forniscono un sostanziale vantaggio nella velocità di processamento
 
 ### Dictionaries
-*I dizionari non sono del tutto delle seguenze*, sono conosciuti come `mappings`, ovvero sono anche collezioni di oggetti, dove questi sono immagazzinati per chiave invece che per posizione. 
+**I dizionari non sono del tutto delle seguenze**, sono conosciuti come `mappings`, ovvero sono anche collezioni di oggetti, dove questi sono immagazzinati per chiave invece che per posizione. 
 Infatti, per i mappings non ha senso un ordinamento in base alla posizione della chiave (left-right order), semplicemente mappano le chiavi associate ai valori.
 
 I dizionari sono gli unici `mapping type` nel `Python's core objects set` e sono mutabili: è possibile cambiare di posto agli elementi e farle crescere.
@@ -272,7 +262,7 @@ rec
 'first': 'Bob'}}
 ```
 
-In Python è implementato il garbage collector: a differenza di linguaggi di programmazione di basso livello, la pulizia della memoria legata agli `object's space` è svolta in automatico *appena* (*IMMEDIATAMENTE*) è perso l'ultimo riferimento all'oggeto (per esempio assegnando un nuovo valore). Ad esempio
+In Python è implementato il garbage collector: a differenza di linguaggi di programmazione di basso livello, la pulizia della memoria legata agli `object's space` è svolta in automatico **appena** (**IMMEDIATAMENTE**) è perso l'ultimo riferimento all'oggeto (per esempio assegnando un nuovo valore). Ad esempio
 
 #### Sorting Key
 Dato che i dizionari non sono sequenze come le liste, per avere le chiavi ordinate è necessario creare una lista ed ordinarle:
@@ -285,7 +275,7 @@ ks = sorted(D)
 
 ```
 
-*IMPORTANTE: CON CHIAVI DI DIVERSO TIPO (es. stringhe e int) NON È POSSIBILE IL CONFRONTO QUINDI L'ORDINAMENTO*.
+**IMPORTANTE: CON CHIAVI DI DIVERSO TIPO (es. stringhe e int) NON È POSSIBILE IL CONFRONTO QUINDI L'ORDINAMENTO**.
 
 
 #### Missing Key
@@ -362,7 +352,8 @@ X^Y # Symmetric difference (valida anche X.symmetric_difference(Y))
 ```
 
 ### And Everything Else
-In Python tutto è un oggetto, ma solo solo ciò che è stato visto in questa lezione è un `Python's core type set`. Altri tipi sono anche essi oggetti relativi all'esecuzione del programma (ad esempio `function`, `modules`, `classes` e `compiled code`).
+In Python tutto è un oggetto, ma solo solo ciò che è stato visto in [Python’s Core Data Types](#python’s-core-data-types) è un `Python's core type set`.
+Altri tipi sono anche essi oggetti ma relativi all'esecuzione del programma (ad esempio `function`, `modules`, `classes` e `compiled code`).
 
 ### Dynamic Typing Interlude
 Capitolo che tratta di `dynamic typing` e `polymorphism`.
@@ -373,7 +364,7 @@ Ciclo di una variabile:
 1) Creazione
    - la variabile è creata solo quando gli è assegnato un valore
 2) Tipo
-   - una variabile non ha un informazione riguardo al suo tipo, è generica e questa è un riferimento ad un oggetto in un partiacolare momemnto
+   - una variabile non ha un informazione riguardo al suo tipo, è generica e questa è un riferimento ad un oggetto in un partiacolare momento
 3) Uso
    - la variabile è sostituita con l'oggetto al quale fa riferimento quando appare in un'espressione
 
@@ -407,6 +398,188 @@ L is M # Different objects
 False
 ```
 
-*NOTA: per i `raw types` == e is si equivalgono*.
+**NOTA: per i `raw types` `==` e `is` si equivalgono**.
 
-## Statments and syntax
+## 3 Statments and syntax
+
+Un programma python è composto come segue:
+1. Programs are composed of modules.
+2. Modules contain statements.
+3. `Statements` contain `expressions`.
+4. Expressions create and process objects.
+
+Con `statments` e `expressions` sono intese rispettivamente la logica di una operazione ed il processamento di `objects` dello `statments`.
+
+Alcuni esempi di `statments` sono le assegnazioni di valori, i `def` e `class` per definire funzioni e metodi e classi , i cicli, `import`. **(Vedere pagina 313)**.
+
+### Syntax
+Tutti i `compound statements` (cicli, condizioni, definizioni classi e metodi) sono della forma
+```
+Header line:
+    Nested statement block
+```
+### Assigment Statments
+
+Alcune cose da ricordare:
+- **Assignments create object references.** Come descritto in [Dynamic Typing Interlude](#dynamic-typing-interlude), l'assegnazione assegna il riferimento all'`objects` al nome o alla `data structure` perché le variabili sono più puntatori che `data storage areas`.
+- **Names are created when first assigned.** Le variabili sono create alla prima assegnazione (nessun bisogno di predichiarle). Una volta assegnato, un nome è sostituiro dal valore a cui si riferisce. Alcune `data structure slots` sono create quando assegnate.
+- **Some operations perform assignments implicitly.** Alcune operazioni assegnano implicitamente variabili, ad esempio `for x in [0, 1, 2]`.
+
+#### Advaced sequence assigment patterns
+```python
+string = 'SPAM'
+a, b, c, d = string # Same number on both sides
+a, d
+('S', 'M')
+a, b, c = string 
+...error text omitted...
+ValueError: too many values to unpack
+```
+```pyhon
+a, b, c = string[0], string[1], string[2:] # Index and slice
+a, b, c
+('S', 'P', 'AM')
+
+a, b, c = list(string[:2]) + [string[2:]] # Slice and concatenate
+a, b, c
+('S', 'P', 'AM')
+```
+```python
+seq = [1, 2, 3, 4]
+
+a, *b = seq 
+
+a, b
+(1, [2, 3, 4])
+```
+
+```python
+for (a, b, c) in [(1, 2, 3), (4, 5, 6)]: ... # Simple tuple assignment
+
+for ((a, b), c) in [((1, 2), 3), ((4, 5), 6)]: ... # Nested tuple assignment
+```
+
+#### Variable Name Rules
+La forma delle variabili consigliata è `(underscore or letter)+(any number of letters, digit or underscores)` (nessun carattere speciale).
+
+### break, continue, pass
+- `break`, esce dal ciclo;
+- `continue`, salta all'inizio del ciclo (loop's header line);
+- `pass`, non fa niente
+### Itereators and Compresion, Part 1
+Un `iterable object` è una generalizzazione del concetto di sequenza, in quanto un `object` è  considerato `iterable` se è `stored` come sequenza oppure un `object` che produce un risultato alla volta nel contesto dei un `iteration tool` (come un `for`), comprendendo le `virtual sequence`.
+
+`iterable` e `iterator` spesso si riferiscono, rispettivamente, ad un `object` che supporta `iter` e ad un `object` restituito da un `iter` che supporta `next(I)`. Oppure i due termini possono essere intercabili in riferimento ad un `object` che supporta iterazioini in generale. 
+
+#### Iteration Protocol: File Iterators
+Un `file object` ha un metodo `readline` che ogni volta che viene invocato restiusce una stringa contentente una riga ed una riga vuota alla fine del file.
+
+```python
+f = open('file.extesion') # Read a 4-line script file in this directory
+f.readline() # readline loads one line on each call
+'riga 1'
+
+f.readline()
+'riga 2'
+
+f.readline() # Returns empty string at end-of-file
+''
+```
+oppure invocando `__next__` su `f` (`f.__next__()`) si ha lo stesso effetto ma con un'ececezione `StopIteration` alla fine del file.
+
+Inoltre, è presente una function (stesso effetto dell'ultimo esempio) `next` che invoca automaticamente la chiama `__next__` di un `object`.
+
+```python
+f = open('file.extesion') # Read a 4-line script file in this directory
+
+next(f) # readline loads one line on each call
+'riga 1'
+
+next(f)
+'riga 2'
+
+f.readline() # Returns empty string at end-of-file
+''
+```
+
+#### List compressions
+Operazioni come 
+```python
+L = [1, 2, 3, 4, 5]
+
+for i in range(len(L)):
+    L[i] += 10
+```
+
+può non essere un'operazione ottimale in Python. È possibile produrre quasi lo stesso risultato attraverso
+
+```python
+L = [x + 10 for x in L]
+
+#codice equivalente:
+res=[]
+for x in L:
+    res.append(x+10)
+L = res
+```
+In questo modo l'operazione necessita di meno righe di codice ed è sostanzialmente più veloce, con l'unico inconveniente che resituisce un nuova `list object` (e in alcuni casi può essere importante mantere il riferimento all'originale lista).
+
+Una `list comprehension` inizia con un'espressione arbitraria (`x+10`), seguita da un `for` che itera su un `iterable object` (`for x in L`).
+
+##### List comprehension su file
+
+Se è necessario leggere tutte le stringhe di un file è possibile quanto segue:
+```python
+f = open('script1.py')
+
+lines = f.readlines()
+
+lines
+['import sys\n', 'print(sys.path)\n', 'x = 2\n', 'print(2 ** 33)\n']
+```
+se è nessario che non siano presenti caratteri `\n`, allora
+```python
+lines = [line.rstrip() for line in open('script1.py')]
+```
+
+Un altro modo fare quanto descritto:
+```python
+lines = list(map(str.strip, open('script1.py').readlines()))
+```
+
+Un ulteriore esempio è
+```python
+lines = [line.rstrip() for line in open('script1.py') if line[0] == 'p']
+
+lines
+['print(sys.path)', 'print(2 ** 33)']
+```
+
+Le `list comprehensions` possono essere più complesse, se necessario, includendo `for` annidiati con eventuali clausole `if` associate. Ad esempio:
+```python
+[x + y for x in 'abc' for y in 'lmn']
+['al', 'am', 'an', 'bl', 'bm', 'bn', 'cl', 'cm', 'cn']
+```
+
+Nel capitolo [Iteration and Comprehensions, Part 2](#itereators-and-compresion-part-2) sarà discusso delle `list comprehensions` nel contesto della programmazione funzionale.
+
+##### Altre iterazioni possibili
+
+```python
+>>> list(open('script1.py'))
+['import sys\n', 'print(sys.path)\n', 'x = 2\n', 'print(2 ** 33)\n']
+
+>>> tuple(open('script1.py'))
+('import sys\n', 'print(sys.path)\n', 'x = 2\n', 'print(2 ** 33)\n')
+
+>>> '&&'.join(open('script1.py'))
+'import sys\n&&print(sys.path)\n&&x = 2\n&&print(2 ** 33)\n'
+
+>>> set(open('script1.py'))
+{'print(sys.path)\n', 'x = 2\n', 'print(2 ** 33)\n', 'import sys\n'}
+
+>>> {line for line in open('script1.py')}
+{'print(sys.path)\n', 'x = 2\n', 'print(2 ** 33)\n', 'import sys\n'}
+```
+
+## 4 Function

@@ -459,6 +459,9 @@ for (a, b, c) in [(1, 2, 3), (4, 5, 6)]: ... # Simple tuple assignment
 for ((a, b), c) in [((1, 2), 3), ((4, 5), 6)]: ... # Nested tuple assignment
 ```
 
+#### Extended Sequence Unpacking in Python 3.0
+In Python 3.0 (non in 2.6) un `single starred name`, ad esempio `*x`, può essere utilizzato nell'assegnazione (e nella firma di una funzione) per specificare che il `name` è assegnato ad una lista, cosicché gli siano assegnati tutti i valori di una sequenza e non vengano assegmati ad altri `names`. 
+
 #### Variable Name Rules
 La forma delle variabili consigliata è `(underscore or letter)+(any number of letters, digit or underscores)` (nessun carattere speciale).
 
@@ -583,3 +586,22 @@ Nel capitolo [Iteration and Comprehensions, Part 2](#itereators-and-compresion-p
 ```
 
 ## 4 Function
+| Statement | Example                          |
+|-----------|----------------------------------|
+| Calls     | myfunc('spam', 'eggs', meat=ham) |
+def,
+return
+global
+nonlocal
+yield
+lambda 
+
+def adder(a, b=1, *c):
+return a + b + c[0]
+def changer():
+global x; x = 'new'
+def changer():
+nonlocal x; x = 'new'
+def squares(x):
+for i in range(x): yield i ** 2
+funcs = [lambda x: x**2, lambda x: 

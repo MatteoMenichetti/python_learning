@@ -36,3 +36,19 @@ lines = [line.strip() for line in f]
 lines_map = list(map(str.strip, open('README.MD').readlines()))
 
 f.close()
+
+
+def test(arg = 10):
+    print('hello world!', arg)
+    global X
+    X = 10
+    return
+
+test(11)
+
+test.attr= 'c'
+test.attr2 = 'd'
+
+print(test.attr)
+
+

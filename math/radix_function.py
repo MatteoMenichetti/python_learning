@@ -1,7 +1,6 @@
 import math
 from symbol import return_stmt
 
-
 def bisection(f, a, b, tol):
     """ bisection(f, a, b, tol)
 
@@ -15,6 +14,8 @@ def bisection(f, a, b, tol):
     _________
     - x, zero of f
     """
+
+    #tbd: controllare condizioni < 0
 
     if a - b == 0 | a > b: print('intervallo non valido', a, b); return None
 
@@ -31,6 +32,8 @@ def bisection(f, a, b, tol):
 
         fx = f(x)
 
+        if b-a == 0: print('b-a == 0', a, b); return None
+
         f1x = abs((fa - fb) / (b - a))
 
         if fx == 0:
@@ -40,9 +43,9 @@ def bisection(f, a, b, tol):
 
         if abs(fx) <= f1x * tol: return [x,i]
 
-        if fa * fx < 0: b = x;
+        if fa * fx < 0: b = x; fx= fb
 
-        elif fb * fx < 0: a = x
+        elif fb * fx < 0: a = x; fx= fa
 
     return [x,i]
 

@@ -52,3 +52,22 @@ test.attr2 = 'd'
 print(test.attr)
 
 
+def f(x):
+    return x ** 2
+
+def f1(x):
+    return 2*x
+
+def eval_function(f, x0):
+    print('Evaluation of f:', f(x0))
+
+eval_function(f, 3)
+
+eval_function(f1, 3)
+
+def func(a, b, c) -> int:
+    return a + b + c
+
+r = func('1', '2', '3')
+
+print(r)
